@@ -8,6 +8,14 @@
  */
 
 function getPersonObject() {
+    const human = {
+        name: 'Bob',
+        age: 32,
+        gender: 'male'
+    }
+    for( let x in human){
+        return human[x]
+    }
 }
 
 /**
@@ -25,6 +33,16 @@ function getPersonObject() {
  */
 
 function mutateObject(person) {
+    const DataB = {
+        name: 'Mary',
+        age: 37,
+        gender: 'female'
+    }
+
+    for (let x in person) {
+        person[x] = DataB[x]
+        return person[x]
+    }
 }
 
 /**
@@ -49,8 +67,14 @@ function mutateObject(person) {
  */
 
 function assignNumber(persons) {
+    let output = {}
+    for (let i = 0; i < persons.length; i++) {
+        const y = Math.floor(Math.random() * Math.floor(10) + 1)
+        let name = persons[i]
+        output[name] = y
+    }
+    console.log(output)
 }
-
 /**
  *  6.4 配列に重複した要素があれば、true、そうでなければfalseを返す関数を実装してください
  *      但し、オブジェクトを使って実装すること
@@ -61,6 +85,16 @@ function assignNumber(persons) {
  *    [] => false
  *
  */
-
 function isDuplicate(array) {
+    let output = {}
+    const x = array.length
+    const set = new Set(array)
+    const setToArr = Array.from(set);
+    const y = setToArr.length
+    if (x != y) {
+        output[array] = "true"
+    } else {
+        output[array] = "false"
+    }
+    return output
 }

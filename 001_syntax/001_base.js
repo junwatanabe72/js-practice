@@ -4,6 +4,7 @@
  *
  */
 function helloWorld() {
+    console.log("Hello World")
 }
 
 /**
@@ -11,6 +12,8 @@ function helloWorld() {
  *
  */
 function displayConst() {
+    const x = "xxx"
+    console.log(x)
 }
 
 /**
@@ -18,6 +21,8 @@ function displayConst() {
  *
  */
 function displayLet() {
+    let x = "xxx"
+    console.log(x)
 }
 
 /**
@@ -25,6 +30,7 @@ function displayLet() {
  *
  */
 function displayArgument(arg) {
+    return arg
 }
 
 /**
@@ -32,6 +38,7 @@ function displayArgument(arg) {
  *
  */
 function sumTwoArgs(a, b) {
+    return a + b
 }
 
 /**
@@ -39,6 +46,7 @@ function sumTwoArgs(a, b) {
  *
  */
 function subtractTwoArgs(a, b) {
+    return a - b
 }
 
 /**
@@ -46,6 +54,7 @@ function subtractTwoArgs(a, b) {
  *
  */
 function quotientTwoArgs(a, b) {
+    return a / b
 }
 
 /**
@@ -53,6 +62,7 @@ function quotientTwoArgs(a, b) {
  *
  */
 function productTwoArgs(a, b) {
+    return a * b
 }
 
 /**
@@ -60,6 +70,7 @@ function productTwoArgs(a, b) {
  *
  */
 function remainderTwoArgs(a) {
+    return a % 2
 }
 
 /**
@@ -67,6 +78,7 @@ function remainderTwoArgs(a) {
  *
  */
 function isEven(a) {
+    console.log(a % 2 == 0 ? true:false)
 }
 
 /**
@@ -74,4 +86,5 @@ function isEven(a) {
  *
  */
 function concatString(a, b) {
+    console.log(a + b)
 }
