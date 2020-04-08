@@ -54,9 +54,26 @@ function substring(str, a, b) {
  *      "hogegeho", "fugafuga" => false
  *
  */
-
+//for文で書いてみる。
 function isInclude(a, b) {
     console.log(a.includes(b)? true:false)
+}
+
+//for_ver
+function isInclude(a, b) {
+    let num = 0
+    for (let i = 0; i < a.length; i++) {
+        if (a[i] === b[num]) {
+            num++
+            if (num == b.length) {
+                return true
+                break;
+            }
+        } else {
+            num = 0
+        }
+    }
+    return false
 }
 
 /**
@@ -71,8 +88,28 @@ function isInclude(a, b) {
  *
  */
 
+ 
 function isPalindrome(str) {
     const x = str
     const y = x.split("").reverse().join("")
     console.log(x === y ? true : false)
+}
+
+
+//for_ver
+function isPalindrome(str) {
+    let num = 0
+    for (let i = 0; i < str.length; i++) {
+        let j = i + 1
+        let k = Math.floor(str.length / 2)
+        if (str[i] === str[str.length - j]) {
+            num += 1
+            if (num === k) {
+                return true
+            }
+        } else {
+            num = 0
+        }
+    }
+    return false
 }

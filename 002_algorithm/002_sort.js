@@ -104,11 +104,37 @@ function mergeSort (array) {
  *    [5, 3, 2, 1] => [1, 2, 3, 5]
  */
 
-function quickSort (array, start = 0, end = (array.length -1)) {
+function quickSort(array, start = 0, end = (array.length - 1)) {
+  let pivot = array[Math.floor((start + end) / 2)];
+  let left = start;
+  let right = end;
+
+  while (true) {
+    while (array[left] < pivot) {
+      left++;
+    }
+    while (pivot < array[right]) {
+      right--;
+    }
+    if (right <= left) {
+      break;
+    }
+
+    let tmp = array[left];
+    array[left] = array[right];
+    array[right] = tmp;
+    left++;
+    right--;
+  }
+
+  if (start < left - 1) {
+    quickSort(array, start, left - 1);
+  }
+  if (right + 1 < end) {
+    quickSort(array, right + 1, end);
+  }
   return array
-};
-
-
+}
 
 
 

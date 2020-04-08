@@ -55,7 +55,7 @@ function fizzBuzz() {
  */
 
 function sum(array) {
-  num=0
+  let num=0
   for (let x in array) {
     num+=array[x]
   }
@@ -91,9 +91,22 @@ function minMax(array) {
  *    'fizzbuzz' => 'zzubzzif'
  *
  */
+
+
 function reverse(str) {
   const x = str.split("").reverse().join("")
   return x
+}
+
+
+
+//for_ver
+function reverse(str) {
+  let j = []
+  for (let i = str.length - 1; i >= 0; i--) {
+    j.push(str[i])
+  }
+  return j.join("")
 }
 
 
@@ -106,9 +119,16 @@ function reverse(str) {
  *    'library',  1 => 'ylibrar'
  *    'library',  3 => 'arylibr'
  *    'library', -1 => 'ibraryl'
- *
+   0 1 2 3 4 
+ * 6 1 2 3 4 1
+ * 5 6 1 2 3 2
+ * 4 5 6 1 2 3
  */
+///
 
+
+
+//もう一回
 function rotate(str, num) {
   let x = str.split("")
   const v = x.length
@@ -130,6 +150,39 @@ function rotate(str, num) {
 }
 
 
+//for_ver
+function rotate(str, num) {
+  //並べ替えるためのハコを作る 
+  let ar = []
+  const v = str.length
+  //numを処理する（１）要素数以上の場合、（２）０以下の場合、（３）０以下でかつ、ー要素数以下の場合
+  if (v < num) {
+    num = num % v
+    num = v - num
+  } else if (v === num) {
+    return str
+  } else if (num < 0) {
+    if (num <= -v) {
+      num = v + (num % v)
+    } else {
+      num = v + num
+    }
+  } else {
+    num = v - num
+  }
+  for (i = 0; i <= str.length - 1; i++) {
+    let j = i + num
+    if (str[j] === undefined) {
+      let a = j - v
+      ar.push(str[a])
+    } else {
+      ar.push(str[j])
+    }
+  }
+  return ar.join("")
+}
+
+
 
 /**
  *  2.1.6 文字列のカウント
@@ -142,11 +195,33 @@ function rotate(str, num) {
  *    'hogehoage',  'hoge' => 1
  *
  */
+
+
+//もう一回
 function countStr(s1, s2) {
   reg = new RegExp(s2, "g");
   let x = s1.match(reg)
   return x.length
 }
+
+//for_ver
+function isInclude(a, b) {
+  let coun = 0
+  let num = 0
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] === b[num]) {
+      num++
+      if (num == b.length) {
+        coun++
+        num = 0
+      }
+    } else {
+      num = 0
+    }
+  }
+  return num
+}
+
 
 /**
  *  2.1.7 素数
@@ -162,6 +237,9 @@ function countStr(s1, s2) {
  *    11 => True
  *
  */
+
+
+ //もう一回
 function isPrime(num) {
   let boo = "True"
   if (num == 1) {
@@ -180,6 +258,35 @@ function isPrime(num) {
   return boo
 }
 
+
+//要素追加
+function isPrime(num) {
+  let boo = "True"
+  if (num === 1) {
+    boo = "False"
+    return boo
+  }
+  else if (num === 2) {
+    return boo
+  }
+  //偶数排除
+  else if (num % 2 === 0) {
+    return boo
+  } else {
+    //ルート使用により、for文の回数を圧縮。
+    snum = Math.sqrt(num)
+    for (i = 2; i < snum; i++) {
+
+      if (num % i === 0) {
+        boo = "False"
+        break;
+      }
+    }
+  }
+  return boo
+}
+
+
 /**
  *  2.1.8 配列の4と次の数字を抜いた合計
  *
@@ -195,6 +302,7 @@ function isPrime(num) {
  *    [4] => 0
  *
  */
+
 function sumWithout4andNext(array) {
   num = 0
   num1 = 0
